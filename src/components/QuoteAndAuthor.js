@@ -21,6 +21,13 @@ export default function QuoteAndAuthor(props) {
                     + encodeURIComponent(quote.quote + '--' + quote.author))
                     }}
                     type="submit"><i class="fab fa-twitter"></i>Share Quote</button>
+                                    <button
+                    className="ml-4"
+                    onClick={() => { generateRandomQuote(quotes);
+                    window.open('https://tumblr.com'
+                    + encodeURIComponent(quote.quote + '--' + quote.author))
+                    }}
+                    type="submit"><i class="fab fa-tumblr"></i>Share Quote</button>
                 </div>
             </div>
         </div>
