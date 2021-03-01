@@ -25,5 +25,4 @@ export default function QuoteAndAuthor(props) {
             </div>
         </div>
     )
-
 }

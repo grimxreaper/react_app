@@ -10,10 +10,11 @@ class App extends React.Component {
       quote: quotes[0].quote,
       author: quotes[0].author
   }
+}
 
   addQuote = (arr) => {
     let index = Math.floor(Math.random() * (quotes.length));
-    let newQuote = quotes[index]
+    let newQuote = quotes[index];
     //update state
     this.setState({
       quote: newQuote.quote, 
@@ -36,11 +37,5 @@ class App extends React.Component {
       </div>
     )
   }
-
-
-
-
-
-
 
 }
