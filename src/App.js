@@ -9,7 +9,7 @@ class App extends React.Component {
     this.state = {
       quote: quotes[0].quote,
       author: quotes[0].author,
-      colors: ["red", "yellow", "blue", "green", "purple", "pink"] //
+      colors: ["PaleVioletRed", "MistyRose", "BlueViolet", "Thistle", "HoneyDew", "purple", "MediumSlateBlue", "Lavender"] //
   }
 }
 
