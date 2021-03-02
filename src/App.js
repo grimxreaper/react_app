@@ -24,14 +24,24 @@ class App extends React.Component {
     this.shuffleQuotes(quotes)
   }
 
-  // shuffleQuotes = (arr) => {
-  //   return arr.sort(function () { return 0.5 - Math.random() });
-  // }
+  shuffleQuotes = (arr) => {
+    return arr.sort(function () { return 0.5 - Math.random() });
+  }
+
+  randomColor() {
+    const color = `rgb(
+      ${Math.floor(Math.random() * 155)},
+      ${Math.floor(Math.random() * 155)},
+      ${Math.floor(Math.random() * 155)})`;
+    return color;
+  }
 
   render () {
     return (
       <div className="container">
-        <QuoteAndAuthor generateRandomQuote = {this.generateRandomQuote}
+        <QuoteAndAuthor
+        displayColor={this.randomColor} 
+        addQuote = {this.addQuote}
         quote={this.state}
         />
       </div>
@@ -39,3 +49,5 @@ class App extends React.Component {
   }
 
 }
+
+export default App;
