@@ -29,7 +29,7 @@ class App extends React.Component {
     return arr.sort(function () { return 0.5 - Math.random() });
   }
 
-  changeBg() {
+  changeBg = () => {
     const { colors } = this.state;
     const color = colors[Math.floor(Math.random() * colors.length)];
     document.body.style.backgroundColor = color;
@@ -39,6 +39,7 @@ class App extends React.Component {
   render () {
     return (
       <div className="container">
+        {/* <button onClick={() => this.changeBg()}>Change Color</button> */}
         <QuoteAndAuthor
         // displayColor={this.randomColor}
         changeBg = {this.changeBg}
