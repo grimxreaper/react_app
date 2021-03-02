@@ -8,7 +8,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       quote: quotes[0].quote,
-      author: quotes[0].author
+      author: quotes[0].author,
+      colors: ["red", "yellow", "blue", "green", "purple", "pink"] //
   }
 }
 
@@ -18,7 +19,7 @@ class App extends React.Component {
     //update state
     this.setState({
       quote: newQuote.quote, 
-      author: newQuote.author
+      author: newQuote.author,
     })
 
     this.shuffleQuotes(quotes)
@@ -28,19 +29,19 @@ class App extends React.Component {
     return arr.sort(function () { return 0.5 - Math.random() });
   }
 
-  randomColor() {
-    const color = `rgb(
-      ${Math.floor(Math.random() * 155)},
-      ${Math.floor(Math.random() * 155)},
-      ${Math.floor(Math.random() * 155)})`;
-    return color;
+  changeBg() {
+    const { colors } = this.state;
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    document.body.style.backgroundColor = color;
   }
+
 
   render () {
     return (
       <div className="container">
         <QuoteAndAuthor
-        displayColor={this.randomColor} 
+        // displayColor={this.randomColor}
+        changeBg = {this.changeBg}
         addQuote = {this.addQuote}
         quote={this.state}
         />

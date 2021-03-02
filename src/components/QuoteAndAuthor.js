@@ -3,7 +3,7 @@ import quotes from '../QuoteDB'
 
 export default function QuoteAndAuthor(props) {
 
-    const {quote, addQuote } = props;
+    const {quote, addQuote, changeBg } = props;
     return (
         <div className="box">
             <div className="box-body">
@@ -17,7 +17,9 @@ export default function QuoteAndAuthor(props) {
                     className="twitter-btn"
                     onClick={() => { addQuote(quotes);
                     window.open('https://twitter.com/intent/tweet/?text='
-                    + encodeURIComponent(quote.quote + '--' + quote.author))
+                    + encodeURIComponent(quote.quote + '--' + quote.author));
+
+                    this.changeBg(); //added
                     }}
                     type="submit"><i class="fab fa-twitter"></i></button>
                                     <button
