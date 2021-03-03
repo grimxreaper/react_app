@@ -2,14 +2,11 @@ import React from 'react'
 import quotes from '../QuoteDB'
 
 
-const colorStyle = {
-    backgroundColor : changeBg(colors)
-}
-
 export default function QuoteAndAuthor(props) {
 
     const {quote, addQuote, changeBg, colors } = props;
     return (
+
         <div className="box">
             <div className="box-body">
                 <p className="quote-text">{quote.quote}</p>
@@ -28,7 +25,7 @@ export default function QuoteAndAuthor(props) {
                 <button
                     className="tumblr-btn"
                     // style = {{backgroundColor : changeBg(colors)}}
-                    style={colorStyle}
+                    // style = {{backgroundColor : this.changeBg(colors)}}
                     onClick={() => { addQuote(quotes);
                     window.open('https://tumblr.com')
                     }}

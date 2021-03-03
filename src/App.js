@@ -32,7 +32,9 @@ class App extends React.Component {
   changeBg = () => {
     const { colors } = this.state;
     const color = colors[Math.floor(Math.random() * colors.length)];
-    document.body.style.backgroundColor = color;
+    document.body.style.backgroundColor = color; //this is ref html
+    // style = {{backgroundColor : this.changeBg(colors)}}
+
     // document.button.style.color = color;
 
     // this.setState({
