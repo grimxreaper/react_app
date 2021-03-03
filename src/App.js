@@ -34,6 +34,10 @@ class App extends React.Component {
     const color = colors[Math.floor(Math.random() * colors.length)];
     document.body.style.backgroundColor = color;
     // document.button.style.color = color;
+
+    this.setState({
+      color: colors[Math.floor(Math.random() * colors.length)]
+    })
   }
 
 
