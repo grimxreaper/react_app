@@ -11,6 +11,9 @@ class App extends React.Component {
       author: quotes[0].author,
       colors: ["PaleVioletRed", "MistyRose", "BlueViolet", "Thistle", "HoneyDew", "purple", "MediumSlateBlue", "Lavender"] 
   }
+  this.changeBg = this.changeBg.bind(this);
+  this.addQuote = this.addQuote.bind(this);
+  this.shuffleQuotes = this.shuffleQuotes.bind(this);
 }
 
   addQuote = (arr) => {
@@ -33,8 +36,8 @@ class App extends React.Component {
     const { colors } = this.state;
     const color = colors[Math.floor(Math.random() * colors.length)];
     document.body.style.backgroundColor = color; //this is ref html
-    // style = {{backgroundColor : this.changeBg(colors)}}
 
+    // style = {{backgroundColor : this.changeBg(colors)}}
     // document.button.style.color = color;
 
     // this.setState({
