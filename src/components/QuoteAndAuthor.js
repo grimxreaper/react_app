@@ -20,8 +20,9 @@ export default function QuoteAndAuthor(props) {
                     + encodeURIComponent(quote.quote + '--' + quote.author));
                     }}
                     type="submit"><i class="fab fa-twitter"></i></button>
-                                    <button
+                <button
                     className="tumblr-btn"
+                    // style={{ color: changeBg(colors) }}
                     onClick={() => { addQuote(quotes);
                     window.open('https://tumblr.com'
                     + encodeURIComponent(quote.quote + '--' + quote.author))

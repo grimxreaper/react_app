@@ -41,7 +41,8 @@ body {
   width: 450px;
   height: auto;
   clear: both;
-  padding-top: 20px;
+  padding-top: 10px;
+  margin-bottom: 30px;
   font-size: 1em;
   text-align: right;
 }
@@ -60,21 +61,22 @@ button.add-quote {
   border: none;
   border-radius: 3px;
   color: #fff;
-  background-color: #333;
+  background-color: rgb(89, 66, 173);
   outline: none;
   font-size: 0.85em;
   padding: 8px 18px 6px 18px;
-  margin-top: 30px;
+  margin-top: 2px;
   opacity: 1;
   cursor: pointer;
+
 }
 
 button.twitter-btn, button.tumblr-btn {
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
   text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
   transform: translate(0, 0);
   float: left;
   padding: 0px;
@@ -82,20 +84,10 @@ button.twitter-btn, button.tumblr-btn {
   padding-top: 8px;
   text-align: center;
   font-size: 1.2em;
+  margin-top: 2px;
   margin-right: 5px;
   margin-bottom: 10px;
-  height: 30px;
+  height: 40px;
   width: 40px;
 }
 
-.fab fa-twitter {
-  float: left;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: 14px;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transform: translate(0, 0);
-  padding: 8px 18px 6px 18px;
-}

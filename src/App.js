@@ -9,7 +9,7 @@ class App extends React.Component {
     this.state = {
       quote: quotes[0].quote,
       author: quotes[0].author,
-      colors: ["PaleVioletRed", "MistyRose", "BlueViolet", "Thistle", "HoneyDew", "purple", "MediumSlateBlue", "Lavender"] //
+      colors: ["PaleVioletRed", "MistyRose", "BlueViolet", "Thistle", "HoneyDew", "purple", "MediumSlateBlue", "Lavender"] 
   }
 }
 
@@ -33,18 +33,17 @@ class App extends React.Component {
     const { colors } = this.state;
     const color = colors[Math.floor(Math.random() * colors.length)];
     document.body.style.backgroundColor = color;
+    // document.button.style.color = color;
   }
 
 
   render () {
     return (
       <div className="container">
-        {/* <button onClick={() => this.changeBg()}>Change Color</button> */}
         <QuoteAndAuthor
-        // displayColor={this.randomColor}
         changeBg = {this.changeBg}
         addQuote = {this.addQuote}
-        quote={this.state}
+        quote= {this.state}
         />
       </div>
     )
