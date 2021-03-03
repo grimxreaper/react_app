@@ -1,6 +1,11 @@
 import React from 'react'
 import quotes from '../QuoteDB'
 
+
+const colorStyle = {
+    backgroundColor : changeBg(colors)
+}
+
 export default function QuoteAndAuthor(props) {
 
     const {quote, addQuote, changeBg, colors } = props;
@@ -22,12 +27,10 @@ export default function QuoteAndAuthor(props) {
                     type="submit"><i class="fab fa-twitter"></i></button>
                 <button
                     className="tumblr-btn"
-                    style = {{color : changeBg(colors)}}
-                    // style={{ color: changeBg(colors) }}
-                    // style = {{ color: this.state.changeBg }}
+                    // style = {{backgroundColor : changeBg(colors)}}
+                    style={colorStyle}
                     onClick={() => { addQuote(quotes);
-                    window.open('https://tumblr.com'
-                    + encodeURIComponent(quote.quote + '--' + quote.author))
+                    window.open('https://tumblr.com')
                     }}
                     type="submit"><i class="fab fa-tumblr"></i></button>
                 </div>

@@ -63,8 +63,8 @@ button.add-quote {
   color: #fff;
   background-color: rgb(89, 66, 173);
   outline: none;
-  font-size: 0.85em;
-  padding: 8px 18px 6px 18px;
+  font-size: 0.87em;
+  padding: 8px 18px 8px 18px;
   margin-top: 2px;
   opacity: 1;
   cursor: pointer;
@@ -89,5 +89,8 @@ button.twitter-btn, button.tumblr-btn {
   margin-bottom: 10px;
   height: 40px;
   width: 40px;
+  color: rgb(89, 66, 173);
+  border-radius: 4px;
+  background-color: whitesmoke;
 }
 
