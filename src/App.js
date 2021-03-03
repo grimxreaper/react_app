@@ -9,6 +9,7 @@ class App extends React.Component {
     this.state = {
       quote: quotes[0].quote,
       author: quotes[0].author,
+      color: 'black',
       colors: ["PaleVioletRed", "MistyRose", "BlueViolet", "Thistle", "HoneyDew", "purple", "MediumSlateBlue", "Lavender"] 
   }
   this.changeBg = this.changeBg.bind(this);
