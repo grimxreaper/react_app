@@ -2,59 +2,52 @@ import React, { Component } from 'react'
 import QuoteAndAuthor from './components/QuoteAndAuthor';
 import quotes from './QuoteDB';
 
+const COLORS = ["PaleVioletRed", "MistyRose", "BlueViolet", "Thistle", "HoneyDew", "purple", "MediumSlateBlue", "Lavender"];
+
+const pickRandomColor = () => {
+  return COLORS[Math.round(Math.random() * (COLORS.length - 1))]
+};
+
+const pickRandomQuote = () => {
+  let index = Math.round(Math.random() * (quotes.length - 1));
+  return quotes[index];
+};
+
 class App extends React.Component {
 
   constructor(props) {
     super(props);
+    const quote = pickRandomQuote();
     this.state = {
-      quote: quotes[0].quote,
-      author: quotes[0].author,
-      color: 'black',
-      colors: ["PaleVioletRed", "MistyRose", "BlueViolet", "Thistle", "HoneyDew", "purple", "MediumSlateBlue", "Lavender"] 
+      quote: quote.quoteText,
+      author: quote.author,
+      color: pickRandomColor()
+    }
   }
-  this.changeBg = this.changeBg.bind(this);
-  this.addQuote = this.addQuote.bind(this);
-  this.shuffleQuotes = this.shuffleQuotes.bind(this);
-}
 
-  addQuote = (arr) => {
-    let index = Math.floor(Math.random() * (quotes.length));
-    let newQuote = quotes[index];
+  onNewQuoteClick = () => {
     //update state
+    const quote = pickRandomQuote();
     this.setState({
-      quote: newQuote.quote, 
-      author: newQuote.author,
+      quote: quote.quoteText,
+      author: quote.author,
+      color: pickRandomColor()
     })
-
-    this.shuffleQuotes(quotes)
   }
 
-  shuffleQuotes = (arr) => {
-    return arr.sort(function () { return 0.5 - Math.random() });
-  }
+  render() {
+    const { quote, author, color } = this.state
 
-  changeBg = () => {
-    const { colors } = this.state;
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    document.body.style.backgroundColor = color; //this is ref html
-
-    // style = {{backgroundColor : this.changeBg(colors)}}
-    // document.button.style.color = color;
-
-    // this.setState({
-    //   color: colors[Math.floor(Math.random() * colors.length)]
-    // })
-  }
-
-
-  render () {
     return (
-      <div className="container">
-        <QuoteAndAuthor
-        changeBg = {this.changeBg}
-        addQuote = {this.addQuote}
-        quote= {this.state}
-        />
+      <div className="background" style={{ backgroundColor: this.state.color }}>
+        <div className="container">
+          <QuoteAndAuthor
+            onClick={this.onNewQuoteClick}
+            quote={quote}
+            author={author}
+            color={color}
+          />
+        </div>
       </div>
     )
   }
