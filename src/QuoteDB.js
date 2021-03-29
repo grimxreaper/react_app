@@ -26,7 +26,12 @@ const quotes = [
     {
         "quoteText": "I’m not gonna be one of those pathetic girls whose world stops just because of some guy.",
         "author": "- Elena Gilbert"
+    },
+    {
+        "quoteText": "He’s your first love. I intend to be your last, however long it takes.",
+        "author": "- Niklaus Mikaelson"
     }
+
 
 ]
 export default quotes;
