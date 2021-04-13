@@ -5,6 +5,7 @@
   "homepage": "https://grimxreaper.github.io/vampire_diaries_quote_gen/",
   "dependencies": {
     "-": "0.0.1",
+    "@react-mock/state": "^0.1.8",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

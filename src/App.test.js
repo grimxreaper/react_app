@@ -3,6 +3,7 @@ import App from "./App";
 // import userEvent from "@testing-library/user-event";
 
 import React from "react";
+import { StateMock } from '@react-mock/state';
 import { render, screen, fireEvent } from "@testing-library/react";
 
 test("hello world", () => {
@@ -12,21 +13,21 @@ test("hello world", () => {
 
 //Testing rendering
 describe("Testing rendering of all React components", () => {
-  test("displays 'New quote' button ", () => {
+  test("displays New quote button", () => {
     render(<App />);
     expect(
       screen.getByRole("button", { name: /New quote/i })
     ).toBeInTheDocument();
   });
 
-  test("displays 'twitter' button ", () => {
+  test("displays twitter button", () => {
     render(<App />);
     expect(
       screen.getByRole("button", { name: /twitter share button/i })
     ).toBeInTheDocument();
   });
 
-  test("displays 'tumblr' button ", () => {
+  test("displays tumblr button", () => {
     render(<App />);
     expect(
       screen.getByRole("button", { name: /tumblr share button/i })
@@ -52,6 +53,30 @@ describe("Testing rendering of all React components", () => {
 //   test("displays a new quote when button is clicked", () => {
 //     const { getByTestId } = render(<App />);
 
-//     expect(screen.getByRole('button', {name: /New quote/i })).toBeInTheDocument();
+//     fireEvent.click(getByText('New quote'))
+
 
 // })
+
+// Hoist helper functions (but not vars) to reuse between test cases
+const renderComponent = ({ count }) =>
+  render(
+    <StateMock state={{ count }}>
+      <StatefulCounter />
+    </StateMock>
+  );
+
+it('renders initial count', async () => {
+  // Render new instance in every test to prevent leaking state
+  const { getByText } = renderComponent({ count: 5 });
+
+  await waitForElement(() => getByText(/clicked 5 times/i));
+});
+
+it('increments count', async () => {
+  // Render new instance in every test to prevent leaking state
+  const { getByText } = renderComponent({ count: 5 });
+
+  fireEvent.click(getByText('+1'));
+  await waitForElement(() => getByText(/clicked 6 times/i));
+});
