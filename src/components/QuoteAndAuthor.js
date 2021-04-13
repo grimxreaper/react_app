@@ -9,8 +9,8 @@ export default function QuoteAndAuthor(props) {
 
         <div className="box">
             <div className="box-body">
-                <p className="quote-text">{quote}</p>
-                <h6 className="author-text">{author}</h6>
+                <p className="quote-text" aria-label="quote" role="contentinfo">{quote}</p>
+                <h6 className="author-text" aria-label="author of quote">{author}</h6>
                 <div className="buttons"> 
                 <button className="add-quote"
                     style = {{backgroundColor : color}}

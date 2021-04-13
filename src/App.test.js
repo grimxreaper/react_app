@@ -32,6 +32,20 @@ describe("Testing rendering of all React components", () => {
       screen.getByRole("button", { name: /tumblr share button/i })
     ).toBeInTheDocument();
   });
+
+  test("displays current quote", () => {
+    render(<App />);
+    expect(
+      screen.getByRole("contentinfo", { name: /quote/i })
+    ).toBeInTheDocument();
+  });
+
+  test("displays quote author", () => {
+    render(<App />);
+    expect(
+      screen.getByRole("heading", { name: /author of quote/i })
+    ).toBeInTheDocument();
+  });
 });
 
 //Testing user interaction
