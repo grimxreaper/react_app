@@ -1,9 +1,9 @@
 // import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
-// import userEvent from "@testing-library/user-event";
+import userEvent from "@testing-library/user-event";
 
 import React from "react";
-import { StateMock } from '@react-mock/state';
+// import { StateMock } from '@react-mock/state';
 import { render, screen, fireEvent } from "@testing-library/react";
 
 test("hello world", () => {
@@ -49,34 +49,15 @@ describe("Testing rendering of all React components", () => {
   });
 });
 
-//Testing user interaction
-//   test("displays a new quote when button is clicked", () => {
-//     const { getByTestId } = render(<App />);
-
-//     fireEvent.click(getByText('New quote'))
 
 
-// })
+//Testing callbacks
+ test("displays a new quote when button is clicked", () => {
+    render(<App />);
+  
+    const prevQuote = screen.getByRole("contentinfo", { name: /quote/i }).textContent
+    userEvent.click(screen.getByText('New quote'))
+    const nextQuote = screen.getByRole("contentinfo", { name: /quote/i }).textContent
 
-// Hoist helper functions (but not vars) to reuse between test cases
-const renderComponent = ({ count }) =>
-  render(
-    <StateMock state={{ count }}>
-      <StatefulCounter />
-    </StateMock>
-  );
-
-it('renders initial count', async () => {
-  // Render new instance in every test to prevent leaking state
-  const { getByText } = renderComponent({ count: 5 });
-
-  await waitForElement(() => getByText(/clicked 5 times/i));
-});
-
-it('increments count', async () => {
-  // Render new instance in every test to prevent leaking state
-  const { getByText } = renderComponent({ count: 5 });
-
-  fireEvent.click(getByText('+1'));
-  await waitForElement(() => getByText(/clicked 6 times/i));
-});
+    expect(prevQuote).not.toEqual(nextQuote);
+})
